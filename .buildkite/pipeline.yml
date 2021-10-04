@@ -1,3 +1,4 @@
 steps:
-  - label: "Example Test"
-    command: echo "Hello!"
+  - label: ":yarn:Install dependencies and test"
+    commands:
+      - "yarn install;yarn test"
