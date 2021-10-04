@@ -1,4 +1,15 @@
 steps:
-  - label: ":yarn:Install dependencies and test"
-    commands:
-      - "yarn install;yarn test"
+  - label: ":yarn: Install Dependencies"
+  - command: "yarn install"
+  - wait
+  - label: ":jest: Test"
+  - command: "yarn test"
+  - label: ":eslint: Lint"
+  - command: "yarn lint"
+  - label: ":typescript: TSC Build"
+  - command: "yarn build"
+  - label: ":chrome: ESBuild Browser"
+  - command: "yarn esbuild-browser"
+  - label: ":node: ESBuild Node"
+  - command: "yarn esbuild-node"
+      
