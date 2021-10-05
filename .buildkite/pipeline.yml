@@ -1,0 +1,22 @@
+steps:
+  - command: "npm install && npm run lint"
+    label: ":eslint: Lint"
+  - command: "npm install && npm run build"
+    label: ":typescript: TSC Build"
+  - command: "npm install && npm run esbuild-browser"
+    label: ":chrome: ESBuild Browser"
+  - command: "npm install && npm run esbuild-node"
+    label: ":node: ESBuild Node"
+  - block: "How many times we should run the tests?"
+    prompt: "Enter the details for the snapshot you'd like to verify"
+    fields:
+      - text: "Iterations"
+        key: "test-iterations"
+        required: true
+      - text: "Branch"
+        key: "target-branch"
+        default: "main"
+        required: true
+  - command: "sh .buildkite/scripts/test.sh"
+    label: ":jest: Test"
+    
