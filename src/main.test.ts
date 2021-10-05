@@ -1,9 +1,9 @@
 import { greet } from './main'
 
-test('the data is peanut butter', () => {
+test('SECOND the data is peanut butter', () => {
   expect(1).toBe(1)
 });
 
-test('greeting', () => {
+test('SECOND greeting', () => {
   expect(greet('Foo')).toBe('Hello Foo')
 });
